@@ -1,0 +1,62 @@
+﻿@model RegisterViewModel
+@using Microsoft.AspNetCore.Http
+@{ 
+    int? sessionID = Context.Session.GetInt32("sessionID");
+}
+
+<h2>Customer: @Model.CurrentCustomer.FullName</h2>
+<h3>Registrations</h3>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Registration product in Model.Registrations)
+        {
+            <tr>
+                <td>@product.Product.Name</td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" value="@product.ProductID" name="productId">
+                        <input type="hidden" value="@product.CustomerID"  name="customerId">
+                        
+                        <button type="submit" class="btn btn-dark">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form asp-action="Add" method="post">
+    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+    <div class="form-group">
+        <h3>Product</h3>
+        <label asp-for="@Model.ProductID">Product</label>
+        <select asp-for="@Model.ProductID" class="form-control"
+                asp-items="@(new SelectList(Model.Products, "ProductID", "Name", 0))">
+            <option value="">Please select one</option>
+            
+        </select>
+    </div>
+
+    <input type="hidden" asp-for="@Model.CustomerID">
+    <div>
+        <button type="submit" class="btn btn-dark" asp-controller="Registration"
+                asp-action="Add">Add
+        </button>
+    </div>
+</form>
+
+
+
+
+

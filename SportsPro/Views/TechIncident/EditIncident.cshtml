@@ -1,0 +1,66 @@
+﻿@model IncidentViewModel
+@*@{
+    ViewBag.Title = " Incident ";
+}*@
+
+<h2>Incident</h2>
+
+
+
+<form asp-action="EditIncident" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="@Model.CurrentIncident.IncidentID" />
+
+    <div class="form-group">
+        <div class="col-6">Technician: </div>
+        <input type="hidden" asp-for="@Model.CurrentIncident.TechnicianID" />
+        <div class="col-6">@Model.CurrentIncident.Technician.Name</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-6">Customer: </div>
+        <input type="hidden" asp-for="@Model.CurrentIncident.CustomerID" />
+        <div class="col-6">@Model.CurrentIncident.Customer.FullName</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-6">Product: </div>
+        <input type="hidden" asp-for="@Model.CurrentIncident.ProductID" />
+        <div class="col-6">@Model.CurrentIncident.Product.Name</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-6">Title: </div>
+        <input type="hidden" asp-for="@Model.CurrentIncident.Title" />
+        <div class="col-sm-6">@Model.CurrentIncident.Title</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-6">Date Opened: </div>
+        <input type="hidden" asp-for="@Model.CurrentIncident.DateOpened" />
+        <div class="col-6">@Model.CurrentIncident.DateOpened</div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label asp-for="CurrentIncident.Description">Description</label>
+        <input asp-for="CurrentIncident.Description" class="form-control">
+        <span asp-validation-for="CurrentIncident.Description"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="CurrentIncident.DateClosed">Date Closed</label>
+        <input asp-for="CurrentIncident.DateClosed" class="form-control">
+        <span asp-validation-for="CurrentIncident.DateClosed"></span>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-controller="TechIncident" asp-action="ListByTech"
+           class="btn btn-danger">Cancel</a>
+    </div>
+
+</form>

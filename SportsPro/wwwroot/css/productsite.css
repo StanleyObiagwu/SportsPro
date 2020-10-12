@@ -1,0 +1,67 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+h1, h2 {
+    margin-top: 1rem;
+    font-size: 20pt;
+    font-family: 'Comic Neue', cursive;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 40px;
+    background-image: url(../css/images/sprt2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 40px; /* Vertically center the text there */
+  background-color: #fff;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+header {
+    background: #aa4b6b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+    display: inline-flex;
+}
+
+p, a {
+    font-family: 'Quicksand', sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+}
+

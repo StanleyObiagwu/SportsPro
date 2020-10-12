@@ -1,0 +1,43 @@
+﻿@model IncidentViewModel
+    @{
+        ViewData["Title"] = " Incident Manager";
+    }
+
+    <h2>Technician</h2>
+    @if (TempData.Keys.Contains("message"))
+    {
+        <h4 class="bg-info text-center text-white p-2">
+            @TempData["message"]
+        </h4>
+    }
+
+
+<form asp-controller="TechIncident" asp-action="TechIncident">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    <div class="form-group">
+        <label asp-for="CurrentIncident.TechnicianID">Technician</label>
+        <select asp-for="CurrentIncident.TechnicianID" class="form-control">
+            <option value="">Please select one</option>
+            @foreach (Technician g in Model.Technicians)
+            {
+                <option value="@g.TechnicianID">@g.Name</option>
+            }
+        </select>
+        <span asp-validation-for="CurrentIncident.TechnicianID"></span>
+    </div>
+
+
+    <div>
+        <button type="submit" class="btn btn-primary">Select</button>
+
+        <a asp-controller="Home" asp-action="Index"
+           class="btn btn-danger">Cancel</a>
+    </div>
+</form>
+
+
+
+
+

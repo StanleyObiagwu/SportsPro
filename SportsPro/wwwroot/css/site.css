@@ -1,0 +1,85 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+h1, h2 {
+    margin-top: 1rem;
+    font-size: 20pt;
+    font-family: 'Comic Neue', cursive;
+    padding-bottom: 5px;
+    color: #FFF;
+}
+
+h3, h4, hr {
+    color: #FFF;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-image: url('images/Moonlit-Asteroid.jpg');
+    background-size: cover;
+}
+
+label {
+    color: #FFF;
+}
+
+.footer {
+    width: 100%;
+    white-space: nowrap;
+    line-height: 40px; /* Vertically center the text there */
+    margin-top: 40px;
+    position: absolute;
+    bottom: 0;
+}
+
+p, .btn {
+    font-family: 'Quicksand', sans-serif;
+}
+
+p {
+    color: #f6f6f6;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    font-family: 'Oswald', sans-serif;
+    color: #000;
+    font-weight: bold;
+}
+
+.table {
+    background-color: #FFF;
+}
+
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.jumbotron {
+    background-image: url('images/Margo.jpg');
+    background-size: cover;
+}
+
+
+
+

@@ -1,0 +1,58 @@
+﻿@model IncidentViewModel
+@{
+    ViewData["Title"] = " Incident Manager";
+}
+
+<h2>Technician: @Model.ActiveTechnician</h2>
+<h2>Assigned/Open Incidents</h2>
+
+@if (TempData.Keys.Contains("message"))
+{
+    <h4 class="bg-info text-center text-white p-2">
+        @TempData["message"]
+    </h4>
+}
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Date Opened</th>
+            <th></th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Incident incident in Model.Incidents)
+           
+        {
+            <tr>
+                <td>@incident.Title</td>
+                <td>@incident.Customer.FullName</td>
+                <td>@incident.Product.Name</td>
+                <td>@incident.DateOpened</td>
+                
+
+                <td>
+                    <a asp-controller="TechIncident" asp-action="EditIncident"
+                       asp-route-id="@incident.IncidentID"
+                       class="btn btn-primary">Edit</a>
+                </td>
+
+                
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-controller="TechIncident" class="btn btn-primary" asp-action="ListByTech">Switch Technician</a>
+</div>
+
+
+
+
+
+

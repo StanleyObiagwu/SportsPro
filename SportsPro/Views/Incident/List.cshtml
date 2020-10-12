@@ -1,0 +1,73 @@
+﻿@model IncidentViewModel
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = " Incident Manager";
+}
+
+<h2>Incident Manager</h2>
+@if (TempData.Keys.Contains("message"))
+{
+    <h4 class="bg-info text-center text-white p-2">
+        @TempData["message"]
+    </h4>
+}
+
+@*data-toggle="pill"*@
+
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active text-white" asp-controller="Incident" asp-action="FilterAll">All Incidents</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" asp-controller="Incident" asp-action="FilterUnassigned">Unassigned Incidents</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" asp-controller="Incident" asp-action="FilterOpen">Open Incidents</a>
+    </li>
+</ul>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Date Opened</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Incident incident in Model.Incidents)
+        {
+            <tr>
+                <td>@incident.Title</td>
+                <td>@incident.Customer.FullName</td>
+                <td>@incident.Product.Name</td>
+                <td>@incident.DateOpened</td>
+
+
+                <td>
+                    <a asp-controller="Incident" asp-action="Edit"
+                       asp-route-id="@incident.IncidentID"
+                       class="btn btn-primary btn-block">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Incident" asp-action="Delete"
+                       asp-route-id="@incident.IncidentID"
+                       class="btn btn-warning btn-block">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-controller="Incident" class="btn btn-dark" asp-action="Add">Add Incident</a>
+</div>
+
+
+
+
+

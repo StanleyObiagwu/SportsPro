@@ -1,0 +1,57 @@
+﻿@model List<Product>
+    @{
+        ViewBag.Title = " Product Manager";
+    }
+
+    <h2>@ViewBag.Title</h2>
+    @if (TempData.Keys.Contains("message"))
+    {
+        <h4 class="bg-info text-center text-white p-2">
+            @TempData["message"]
+        </h4>
+    }
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Release Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductCode</td>
+                    <td>@product.Name</td>
+                    <td>@product.YearlyPrice</td>
+                    <td>@product.ReleaseDate</td>
+                    <td>
+                        <a asp-controller="Product" asp-action="Edit"
+                           asp-route-id="@product.ProductID"
+                           class="btn btn-primary btn-block">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Product" asp-action="Delete"
+                           asp-route-id="@product.ProductID"
+                           class="btn btn-warning btn-block">Delete</a>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-controller="Product" class="btn btn-dark" asp-action="Add">Add Product</a>
+    </div>
+
+
+
+
+
